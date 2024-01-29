@@ -1,9 +1,12 @@
-from audioop import reverse
 from django.shortcuts import redirect, render
 # import Models
 from .models import Jobs, categories
 from django.core.paginator import Paginator
+from django.contrib.auth.models import User
 
+# Create your views here.
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .forms import AddJob, ApplyJob
 
 # Create your views here.
@@ -46,7 +49,7 @@ def add_job(request):
             MyForm= formNEWJob.save(commit=False)
             MyForm.owner= request.user
             MyForm.save()
-            # return redirect(reverse("jobs:jobs_list"))
+            return redirect(reverse('jobs:jobs_list'))
     else:
         formNEWJob = AddJob()
         
