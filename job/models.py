@@ -29,7 +29,7 @@ class Jobs(models.Model):
     title = models.CharField(max_length=60, default=None)
     image = models.ImageField(upload_to=upload_image) # TODO: Use Function (upload_image)
     # location
-    
+    location = models.CharField(max_length=255, help_text="Enter the location text")
     job_type = models.CharField(max_length=15, choices=JOB_TYPE)
     description = models.TextField(max_length= 1200,default=None)
     published_at = models.DateTimeField(auto_now=True) # published at a job

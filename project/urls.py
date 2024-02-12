@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    path('accounts/', include('django.contrib.auth.urls')),
+    # path('accounts') is first Because Django start first >to> last
     path('admin/', admin.site.urls),
     # path('',include('my_app.urls',namespace='app')),
     path('jobs/', include('job.urls',namespace='jobs')),

@@ -5,14 +5,14 @@ from django.core.paginator import Paginator
 from django.contrib.auth.models import User
 
 # Create your views here.
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse ,HttpResponseRedirect
 from django.urls import reverse
 from .forms import AddJob, ApplyJob
 
 # Create your views here.
 def jobs_list(request):
     jobs_list = Jobs.objects.all()
-    paginator = Paginator(jobs_list, 3)  
+    paginator = Paginator(jobs_list,10)  
     #TODO: Show 2 Jobs per page.
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
@@ -26,6 +26,7 @@ def jobs_list(request):
 
 def job_detail(request, slug):
     job_detail = Jobs.objects.get(slug=slug)
+    #return HttpResponse(f'ID: {id}, Slug: {slug}')
     
     if request.method=='POST':
         form = ApplyJob(request.POST,request.FILES)

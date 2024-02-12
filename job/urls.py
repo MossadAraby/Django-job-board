@@ -9,4 +9,6 @@ urlpatterns = [
     path('add', views.add_job,name='add_job'), 
     # path('<int:id>', views.job_detail,name='job_detail'),
     path('<str:slug>', views.job_detail,name='job_detail'),
+    # path('/<int:id>/<slug:slug>/', views.job_detail,name='job_detail'),
+
 ]
