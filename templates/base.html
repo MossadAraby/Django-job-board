@@ -77,17 +77,17 @@
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                                 <div class="Appointment">
                                     <div class="phone_num d-none d-xl-block">
-                                        {% if user.is_authenticated %}    
+                                        {% if request.user.is_authenticated %}    
                                         <div class="phone_num d-none d-xl-block">
                                             <li style="color:#fff;"><i> User:</i> {{ user.first_name }}</li>
                                             <li>   <a href="{% url 'login' %}?next={{ request.path }}">Logout </a></li>
                                         </div>
                                         {% else %}
-                                        <div class="phone_num d-none d-xl-block">
-                                            <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
-                                        </div>
+                                            <div class="phone_num d-none d-xl-block">
+                                                <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
+                                            </div>
                                         {% endif %}
-    
+        
                                         {% comment %} <ul class="sidebar-nav">
                                             {% if user.is_authenticated %}
                                                 <li>User: {{ user.get_username }}</li>
