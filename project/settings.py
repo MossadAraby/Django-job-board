@@ -30,8 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # My applications
     'job',
-    
     'django_bootstrap5',
+    'rest_framework',
     # 'location_field.apps.DefaultConfig',
 ]
 

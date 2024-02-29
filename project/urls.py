@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('',include('my_app.urls',namespace='app')),
     path('jobs/', include('job.urls',namespace='jobs')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 
 if settings.DEBUG:
